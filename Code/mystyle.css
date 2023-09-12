@@ -1,0 +1,18 @@
+
+   h1{
+        color:aquamarine;
+    }
+    body{
+        background-color: rgb(0, 0, 0);
+    }
+    #p1{
+        color: aliceblue;
+        font-style: oblique;
+    }
+    a{
+        border-style: solid;
+        border-radius: 5px;
+        color: blueviolet;
+        background-color: aliceblue;
+    }
+   
