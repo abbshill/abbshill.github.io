@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wage Calculator</title>
+</head>
+<body>
+    <h1>Wage Calculator</h1>
+    <p>Plug in data below!</p>
+    <p>Normal Hours:</p>
+    <input type="number" id="hoursWorked" placeholder="Hours worked" step="0.01">
+
+    <p>Normal rate:</p>
+    <input type="number" id="hourlyPayRate" placeholder="Hourly pay rate" step="0.01">
+
+    <p>Overtime rate:</p>
+    <input type="number" id="overtimePayRate" placeholder="Overtime pay rate" step="0.01">
+   
+    <p>Your Wages are:</p>
+    <h1 id="wageResult"></h1>
+    
+    <button onclick="calculateWage()">Calculate</button>
+
+    <script>
+        function calculateWage() {
+            // Get user input
+            const hoursWorked = document.getElementById('hoursWorked').valueAsNumber;
+            const hourlyPayRate = document.getElementById('hourlyPayRate').valueAsNumber;
+            const overtimePayRate = document.getElementById('overtimePayRate').valueAsNumber;
+
+            // Check if input is valid
+            if (isNaN(hoursWorked) || isNaN(hourlyPayRate) || hoursWorked < 0 || hourlyPayRate < 0) {
+                alert('Please enter valid hours worked and hourly pay rate.');
+                return;
+            }
+
+            // Calculate wages
+            let totalWage;
+
+            if (hoursWorked <= 8) {
+                totalWage = hoursWorked * hourlyPayRate;
+            } else {
+                const regularHours = 8;
+                const overtimeHours = hoursWorked - regularHours;
+                totalWage = (regularHours * hourlyPayRate) + (overtimeHours * overtimePayRate);
+            }
+
+            // Display the result
+            const wageResultElement = document.getElementById('wageResult');
+            wageResultElement.textContent = totalWage.toFixed(2);
+        }
+    </script>
+</body>
+</html>
