@@ -1,14 +1,14 @@
 function get_max(){
     //get numbers from input boxes
-    let a = document.getElementById("b1").valueAsNumber
+    let a = document.getElementById("i1").valueAsNumber
     let b = document.getElementById("i2").valueAsNumber
     let c = document.getElementById("i3").valueAsNumber
     //compare numbers
     let max = a
-    if (b > mac) {
+    if (b > max) {
         max = b
     }
-    if (c > mac) {
+    if (c > max) {
         max = c
     }
     //display the max
